@@ -1,0 +1,31 @@
+protocol: http
+docker_name: httpd
+
+# Each element in the list for 'web' and 'rdf' should be a *relative* link.
+# Example, the element in 'web' has the value 'tern'. 
+# Then, the test will make a request to {protocol}://{httpd}/tern
+# 
+# Example, the element in 'rdf' has the value 'tern/ontologies/org'.
+# Then, the test will make a request to {protocol}://{httpd}/tern/ontologies/org
+#
+# The 'rdf_turtle' only tests for retrieving content in text/turtle.
+
+web:
+  - tern
+  - tern/resources/b93c993f-22a9-4857-8df4-b6bfc1d3062c
+  - tern/static/ausplots-manual/point-intercept-method/step-1.png
+  - tern/static/ausplots-manual/v1.2.9/point-intercept-method/step-1.png
+  - tern/static/ausplots-manual/latest/point-intercept-method/step-1.png
+  # - tern/ontologies/ # enable for later when we have a registry of ontologies.
+
+# TODO: a new test type to test TERN static assets and the different versioning rules. 
+
+rdf:
+  - tern/ontologies/org
+  - tern/ontologies/skos
+  - tern/ontologies/ssn
+  - tern/ontologies/loc
+  # - tern/resources/b93c993f-22a9-4857-8df4-b6bfc1d3062c # not working.. the java app (either lodview or graphdb) is returning an error.
+
+rdf_turtle:
+  - tern/shacl/org
