@@ -4,8 +4,13 @@ RewriteEngine On
 
 
 #######################################
-# https://w3id.org/tern/ontologies/org/
+# https://w3id.org/landrs/ontologies/core/{version}
 #######################################
+
+# Any specific version Rewrite Rule
+# RewriteRule ^(\d+.\d+.\d+)$ https://github.com/biocompute-objects/BCO_Specification/tree/$1 [R=302,L]
+# Any file in specific version tree
+# RewriteRule ^(\d+.\d+.\d+.*)$ https://github.com/biocompute-objects/BCO_Specification/blob/$1 [R=302,L]
 
 # Turtle
 RewriteCond %{QUERY_STRING} ^_format=text/turtle$ [OR]
@@ -42,130 +47,6 @@ RewriteRule ^ontologies/org.owl$ https://raw.githack.com/ternaustralia/ontology_
 
 # HTML
 RewriteRule ^ontologies/org/?$ https://ternaustralia.github.io/ontology_tern-org/ [R=303,L]
-
-
-########################################
-# https://w3id.org/tern/ontologies/skos/
-########################################
-
-# Turtle
-RewriteCond %{QUERY_STRING} ^_format=text/turtle$ [OR]
-RewriteCond %{HTTP:Accept} text/turtle [NC]
-RewriteRule ^ontologies/skos/?$ https://raw.githack.com/ternaustralia/ontology_tern-skos/master/docs/tern-skos.ttl [R=303,L]
-RewriteRule ^ontologies/skos.ttl$ https://raw.githack.com/ternaustralia/ontology_tern-skos/master/docs/tern-skos.ttl [R=303,L]
-
-# RDF/XML
-RewriteCond %{QUERY_STRING} ^_format=application/rdf\+xml$ [OR]
-RewriteCond %{HTTP:Accept} application/rdf\+xml [NC]
-RewriteRule ^ontologies/skos/?$ https://raw.githack.com/ternaustralia/ontology_tern-skos/master/docs/tern-skos.rdf [R=303,L]
-RewriteRule ^ontologies/skos.rdf$ https://raw.githack.com/ternaustralia/ontology_tern-skos/master/docs/tern-skos.rdf [R=303,L]
-
-# N-Triples
-RewriteCond %{QUERY_STRING} ^_format=application/n-triples$ [OR]
-RewriteCond %{HTTP:Accept} application/n-triples [NC]
-RewriteRule ^ontologies/skos/?$ https://raw.githack.com/ternaustralia/ontology_tern-skos/master/docs/tern-skos.nt [R=303,L]
-RewriteRule ^ontologies/skos.nt$ https://raw.githack.com/ternaustralia/ontology_tern-skos/master/docs/tern-skos.nt [R=303,L]
-
-# JSON-LD
-RewriteCond %{QUERY_STRING} ^_format=application/ld\+json$ [OR]
-RewriteCond %{HTTP:Accept} application/ld\+json [NC]
-RewriteRule ^ontologies/skos/?$ https://raw.githack.com/ternaustralia/ontology_tern-skos/master/docs/tern-skos.jsonld [R=303,L]
-RewriteRule ^ontologies/skos.jsonld$ https://raw.githack.com/ternaustralia/ontology_tern-skos/master/docs/tern-skos.jsonld [R=303,L]
-
-# Notation3
-RewriteCond %{QUERY_STRING} ^_format=text/n3$ [OR]
-RewriteCond %{HTTP:Accept} text/n3 [NC]
-RewriteRule ^ontologies/skos/?$ https://raw.githack.com/ternaustralia/ontology_tern-skos/master/docs/tern-skos.n3 [R=303,L]
-RewriteRule ^ontologies/skos.n3$ https://raw.githack.com/ternaustralia/ontology_tern-skos/master/docs/tern-skos.n3 [R=303,L]
-
-# .owl file extension
-RewriteRule ^ontologies/skos.owl$ https://raw.githack.com/ternaustralia/ontology_tern-skos/master/docs/tern-skos.ttl [R=303,L]
-
-# HTML
-RewriteRule ^ontologies/skos/?$ https://ternaustralia.github.io/ontology_tern-skos/ [R=303,L]
-
-
-#######################################
-# https://w3id.org/tern/ontologies/ssn/
-#######################################
-
-# Turtle
-RewriteCond %{QUERY_STRING} ^_format=text/turtle$ [OR]
-RewriteCond %{HTTP:Accept} text/turtle [NC]
-RewriteRule ^ontologies/ssn/?$ https://raw.githack.com/ternaustralia/ontology_tern-ssn/master/docs/tern-ssn.ttl [R=303,L]
-RewriteRule ^ontologies/ssn.ttl$ https://raw.githack.com/ternaustralia/ontology_tern-ssn/master/docs/tern-ssn.ttl [R=303,L]
-
-# RDF/XML
-RewriteCond %{QUERY_STRING} ^_format=application/rdf\+xml$ [OR]
-RewriteCond %{HTTP:Accept} application/rdf\+xml [NC]
-RewriteRule ^ontologies/ssn/?$ https://raw.githack.com/ternaustralia/ontology_tern-ssn/master/docs/tern-ssn.rdf [R=303,L]
-RewriteRule ^ontologies/ssn.rdf$ https://raw.githack.com/ternaustralia/ontology_tern-ssn/master/docs/tern-ssn.rdf [R=303,L]
-
-# N-Triples
-RewriteCond %{QUERY_STRING} ^_format=application/n-triples$ [OR]
-RewriteCond %{HTTP:Accept} application/n-triples [NC]
-RewriteRule ^ontologies/ssn/?$ https://raw.githack.com/ternaustralia/ontology_tern-ssn/master/docs/tern-ssn.nt [R=303,L]
-RewriteRule ^ontologies/ssn.nt$ https://raw.githack.com/ternaustralia/ontology_tern-ssn/master/docs/tern-ssn.nt [R=303,L]
-
-# JSON-LD
-RewriteCond %{QUERY_STRING} ^_format=application/ld\+json$ [OR]
-RewriteCond %{HTTP:Accept} application/ld\+json [NC]
-RewriteRule ^ontologies/ssn/?$ https://raw.githack.com/ternaustralia/ontology_tern-ssn/master/docs/tern-ssn.jsonld [R=303,L]
-RewriteRule ^ontologies/ssn.jsonld$ https://raw.githack.com/ternaustralia/ontology_tern-ssn/master/docs/tern-ssn.jsonld [R=303,L]
-
-# Notation3
-RewriteCond %{QUERY_STRING} ^_format=text/n3$ [OR]
-RewriteCond %{HTTP:Accept} text/n3 [NC]
-RewriteRule ^ontologies/ssn/?$ https://raw.githack.com/ternaustralia/ontology_tern-ssn/master/docs/tern-ssn.n3 [R=303,L]
-RewriteRule ^ontologies/ssn.n3$ https://raw.githack.com/ternaustralia/ontology_tern-ssn/master/docs/tern-ssn.n3 [R=303,L]
-
-# .owl file extension
-RewriteRule ^ontologies/ssn.owl$ https://raw.githack.com/ternaustralia/ontology_tern-ssn/master/docs/tern-ssn.ttl [R=303,L]
-
-# HTML
-RewriteRule ^ontologies/ssn/?$ https://ternaustralia.github.io/ontology_tern-ssn/ [R=303,L]
-
-
-#######################################
-# https://w3id.org/tern/ontologies/loc/
-#######################################
-
-# Turtle
-RewriteCond %{QUERY_STRING} ^_format=text/turtle$ [OR]
-RewriteCond %{HTTP:Accept} text/turtle [NC]
-RewriteRule ^ontologies/loc/?$ https://raw.githack.com/ternaustralia/ontology_tern-loc/master/docs/tern-loc.ttl [R=303,L]
-RewriteRule ^ontologies/loc.ttl$ https://raw.githack.com/ternaustralia/ontology_tern-loc/master/docs/tern-loc.ttl [R=303,L]
-
-# RDF/XML
-RewriteCond %{QUERY_STRING} ^_format=application/rdf\+xml$ [OR]
-RewriteCond %{HTTP:Accept} application/rdf\+xml [NC]
-RewriteRule ^ontologies/loc/?$ https://raw.githack.com/ternaustralia/ontology_tern-loc/master/docs/tern-loc.rdf [R=303,L]
-RewriteRule ^ontologies/loc.rdf$ https://raw.githack.com/ternaustralia/ontology_tern-loc/master/docs/tern-loc.rdf [R=303,L]
-
-# N-Triples
-RewriteCond %{QUERY_STRING} ^_format=application/n-triples$ [OR]
-RewriteCond %{HTTP:Accept} application/n-triples [NC]
-RewriteRule ^ontologies/loc/?$ https://raw.githack.com/ternaustralia/ontology_tern-loc/master/docs/tern-loc.nt [R=303,L]
-RewriteRule ^ontologies/loc.nt$ https://raw.githack.com/ternaustralia/ontology_tern-loc/master/docs/tern-loc.nt [R=303,L]
-
-# JSON-LD
-RewriteCond %{QUERY_STRING} ^_format=application/ld\+json$ [OR]
-RewriteCond %{HTTP:Accept} application/ld\+json [NC]
-RewriteRule ^ontologies/loc/?$ https://raw.githack.com/ternaustralia/ontology_tern-loc/master/docs/tern-loc.jsonld [R=303,L]
-RewriteRule ^ontologies/loc.jsonld$ https://raw.githack.com/ternaustralia/ontology_tern-loc/master/docs/tern-loc.jsonld [R=303,L]
-
-# Notation3
-RewriteCond %{QUERY_STRING} ^_format=text/n3$ [OR]
-RewriteCond %{HTTP:Accept} text/n3 [NC]
-RewriteRule ^ontologies/loc/?$ https://raw.githack.com/ternaustralia/ontology_tern-loc/master/docs/tern-loc.n3 [R=303,L]
-RewriteRule ^ontologies/loc.n3$ https://raw.githack.com/ternaustralia/ontology_tern-loc/master/docs/tern-loc.n3 [R=303,L]
-
-# .owl file extension
-RewriteRule ^ontologies/loc.owl$ https://raw.githack.com/ternaustralia/ontology_tern-loc/master/docs/tern-loc.ttl [R=303,L]
-
-# HTML
-RewriteRule ^ontologies/loc/?$ https://ternaustralia.github.io/ontology_tern-loc/ [R=303,L]
-
 
 ##############################
 # https://w3id.org/tern/shacl/
@@ -228,29 +109,3 @@ RewriteRule ^resources\/(.+)$ https://lodview.it/lodview/?IRI=https://w3id.org/t
 
 # Linked Data Home Page
 RewriteRule ^$ http://linkeddata.tern.org.au/ [R=303,L]
-
-
-##############################
-# https://w3id.org/tern/static
-##############################
-
-# Shortened persistent URL to TERN static web assets served from Nectar object store. 
-# http://localhost:8000/tern/static/ausplots-manual/point-intercept-method/step-1.png           -> https://swift.rc.nectar.org.au/v1/AUTH_05bca33fce34447ba7033b9305947f11/static-web-assets/ausplots-manual/latest/point-intercept-method/step-1.png
-# http://localhost:8000/tern/static/ausplots-manual/v1.2.9/point-intercept-method/step-1.png    -> https://swift.rc.nectar.org.au/v1/AUTH_05bca33fce34447ba7033b9305947f11/static-web-assets/ausplots-manual/v1.2.9/point-intercept-method/step-1.png
-# http://localhost:8000/tern/static/ausplots-manual/latest/point-intercept-method/step-1.png    -> https://swift.rc.nectar.org.au/v1/AUTH_05bca33fce34447ba7033b9305947f11/static-web-assets/ausplots-manual/latest/point-intercept-method/step-1.png
-# http://localhost:8000/tern/static/ausplots-manual/v1.2.9-1/point-intercept-method/step-1.png  -> https://swift.rc.nectar.org.au/v1/AUTH_05bca33fce34447ba7033b9305947f11/static-web-assets/ausplots-manual/v1.2.9-1/point-intercept-method/step-1.png
-
-# Rule does not match second-level directory containing "latest" or a semver (e.g. v1.2.9). This includes semver with dashes (e.g. v1.2.9-1).
-RewriteRule static\/([a-zA-Z-_]+)\/(?!latest|v[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9]+)?)\/?(.+)$ https://swift.rc.nectar.org.au/v1/AUTH_05bca33fce34447ba7033b9305947f11/static-web-assets/$1/latest/$2 [R=303,L]
-
-# Rule matches all.
-RewriteRule static\/(.+)$ https://swift.rc.nectar.org.au/v1/AUTH_05bca33fce34447ba7033b9305947f11/static-web-assets/$1 [R=303,L]
-
-#
-# Another alternate version
-#
-# Is it a url with version included?
-#RewriteCond "%{REQUEST_URI}" "static/([a-zA-Z-_]+)/(latest|v[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9]+)?)/.*$"
-#RewriteRule static/(.+)$ https://swift.rc.nectar.org.au/v1/AUTH_05bca33fce34447ba7033b9305947f11/static-web-assets/$1 [R=303,L]
-# No version in url, just serve latest
-#RewriteRule static/([a-zA-Z-_]+)/?(.+)$ https://swift.rc.nectar.org.au/v1/AUTH_05bca33fce34447ba7033b9305947f11/static-web-assets/$1/latest/$2 [R=303,L]
